@@ -1,0 +1,74 @@
+<section class="p-4 bg-white rounded-lg shadow-md pt-8">
+    <p class="font-[benton-sans-meduim] font-normal text-base/[16.16px] text-[#1D1D1D]">Create TCSA</p>
+    <p class="font-[benton-sans-Regular] font-normal text-sm/[17.71px] text-[#1D1D1D]">
+        Please provide accurate information in the fields below:
+    </p>
+    <form [formGroup]="loginForm" >
+        <div class="mt-8">
+            <input class="
+            w-full h-[45px] bg-[#F2F3F5]  placeholder:text-[#616E88] placeholder: text-sm
+            focus:outline-none rounded-lg p-4 focus:border-sky-500 focus:ring-sky-500 focus:ring-1" 
+            type="text"
+            placeholder="Enter Account Name"
+            formControlName="accountName"
+            [maxlength]="20"
+            required
+            [ngClass]="{'border-2 border-red-700' : 
+            loginForm.get('accountName')?.invalid 
+            && (loginForm.get('accountName')?.touched 
+            || loginForm.get('accountName')?.dirty)}"
+            >
+            <div  *ngIf="loginForm.get('accountName')?.invalid 
+                && (loginForm.get('accountName')?.touched 
+                || loginForm.get('accountName')?.dirty)
+                "
+                class="text-red-700"
+                >
+                Account Name is Required
+            </div>
+        </div>
+        <div class="mt-4">
+           
+            <input class="
+            w-full h-[45px] bg-[#F2F3F5]  placeholder:text-[#616E88] placeholder: text-sm
+            focus:outline-none rounded-lg p-4 focus:border-sky-500 focus:ring-sky-500 focus:ring-1" 
+            type="password"
+            placeholder="Enter Password "
+            formControlName="password"
+            [maxlength]="20"
+            required
+            [ngClass]="{'border-2 border-red-700' : 
+            loginForm.get('password')?.invalid 
+            && (loginForm.get('password')?.touched 
+            || loginForm.get('password')?.dirty)}"
+            >
+            <div  *ngIf="loginForm.get('password')?.invalid 
+                && (loginForm.get('password')?.touched 
+                || loginForm.get('password')?.dirty)
+                "
+                class="text-red-700">
+                Password is required
+            </div>
+        </div>
+        <div class="flex space-x-4  my-4">
+            <button
+            (click)="submitRequest()"
+                [disabled]="loginForm.invalid"
+                class="bg-[#0033AA] h-[42px] w-[136px] mt-8 
+                text-white rounded-lg font-normal  p-4
+                text-sm/[12.12px] disabled:bg-gray-100
+                font-[benton-sans-meduim] focus:outline-none" 
+                >Continue
+            </button>
+            <button
+            (click)="closeModal()"
+            class="border-[1px] h-[42px] w-[136px]  mt-8 border-[#616E88]
+            text-[#616E88] rounded-lg font-normal  p-4
+            text-sm/[12.12px]
+            font-[benton-sans-meduim] focus:outline-none" 
+            >Cancel
+            </button>
+        </div>
+
+    </form>
+</section>

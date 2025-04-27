@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+@font-face {
+    font-family: 'Benton-sans-meduim';
+    src: url('../src/assets/fonts/Benton-Sans/BentonSans-Medium.otf') format("opentype");
+    
+}
+@font-face {
+    font-family: 'Benton-sans-regular';
+    src: url('../src/assets/fonts/Benton-Sans/BentonSans-Regular.otf') format("opentype");
+}
+@font-face {
+    font-family: 'Benton-sans-Black';
+    src: url('../src/assets/fonts/Benton-Sans/BentonSans-Black.otf') format("opentype");
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

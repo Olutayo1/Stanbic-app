@@ -1,0 +1,140 @@
+<section class="bg-[#E5E5E5] h-screen overflow-x-hidden overflow-y-auto">
+    <header 
+      class=" bg-[#0032A1] w-full grid md:grid-cols-3 
+      gap-4 p-4 px-[4rem] justify-content-center align-items-center "
+    >
+      <div class="flex  space-x-2  items-center">
+        <img class="w-[34.78px] h-[40px]" src="../assets/images/standard_bank_logo.png" alt="logo">
+        <p 
+        class="pt-2 font-normal text-sm/[1.125rem] text-white font-[benton-sans-meduim] ">
+        Stanbic IBTC <br> Temporary Collection Sub Account
+      </p>
+      </div>
+      <div class=" mt-2">
+        <input 
+        placeholder="Type to search for anything"
+        class="w-[400px] h-[40px]  border-0 relative p-2 pl-8
+          bg-white rounded-lg  text-[#616E88] text-sm/[1.131rem] font-[benton-sans-regular]
+          placeholder:text-sm/[1.131rem] placeholder:text-[#616E88] placeholder:font-[benton-sans-regular]
+          focus:ring-0 focus:border-0 focus:ring-sky-500 focus:border-2 focus:ring-2 focus:outline-none
+        " >
+        <img class="absolute top-[2.2rem] mx-2 w-[0.97re] h-[1rem]" 
+        src="../assets/images/Combined-Shape.png" alt="search">
+        
+      </div>
+      <div class=" flex space-x-4 items-center justify-end ">
+        <img class="w-[1rem] h-[1rem]" src="../assets/images/log-out.png" alt="log out">
+        <p
+          class="font-normal pt-2 text-sm/[1.125rem] text-white font-[benton-sans-meduim] "
+        >Log out</p>
+      </div>
+    </header>
+    <aside class="p-8 px-[4rem]">
+      <div class="grid grid-cols-4 w-full justify-items-stretch">
+        <div
+        (click)="goToLayout()"
+         class=" col-span-2 h-[40px] justify-items-center flex cursor-pointer">
+            <img class="w-[7px] h-[13px] my-4" src="../../../assets/images/arrow_back.png" alt="">
+            <p class="font-[benton-sans-meduim] py-[0.9rem] px-4 font-normal text-base/[16.16px] text-[#0032A1]"> Go Back</p>
+        </div>
+        <div class=" h-[40px] justify-items-center align-items-end flex space-x-4">
+            <div class=" bg-[#0033AA] flex rounded-lg p-4">
+                <img class="w-[14.77px] h-[16px] ml-[0.5rem] mt-[-0.3rem] " src="../../../assets/images/extend.png" alt="">
+                <button  class="w-[200px] h-[42px] text-white mt-[-1rem]
+                font-[benton-sans-meduim] font-normal text-sm/[12.12px] rounded-lg">
+                    Extend terminal date
+                </button>
+            </div>
+            <div class=" bg-white flex rounded-lg p-4">
+                <img class="w-[14.77px] h-[16px] ml-[0.5rem] mt-[-0.3rem] " 
+                src="../../../assets/images/generate.png" alt="">
+                <button  class="w-[193px] h-[42px] text-[#0033AA] mt-[-1rem]
+                font-[benton-sans-meduim] font-normal text-sm/[12.12px] rounded-lg">
+                Generate statement
+                </button>
+            </div>
+            <div class=" bg-[#F10B0B] flex rounded-lg p-4">
+                <img class="w-[14.77px] h-[16px] ml-[0.5rem] mt-[-0.3rem] " src="../../../assets/images/extend.png" alt="">
+                <button  class="w-[129px] h-[42px] text-white mt-[-1rem]
+                font-[benton-sans-meduim] font-normal text-sm/[12.12px] rounded-lg">
+                CLOSE TCSA
+                </button>
+            </div>
+        </div>
+
+      </div>
+      <div class="mat-elevation-z8 rounded-lg shadow-md border-2 mt-8 py-8 bg-white">
+        <table mat-table [dataSource]="dataSource">
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="Account Name">
+            <th mat-header-cell 
+            class="text-[#616E88] font-normal text-sm/[14.41px] 
+            font-[benton-sans-meduim]" *matHeaderCellDef> ACCOUNT NAME</th>
+            <td mat-cell *matCellDef="let element"
+            class="text-[#393939] font-normal text-sm/[14.41px] font-[benton-sans-regular]"
+            > {{element.accountName}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="Collection Name">
+            <th mat-header-cell *matHeaderCellDef
+            class="text-[#616E88] font-normal text-sm/[14.41px] font-[benton-sans-meduim]"
+            > COLLECTION NAME </th>
+            <td mat-cell *matCellDef="let element"
+            class="text-[#393939] font-normal text-sm/[14.41px] font-[benton-sans-regular]"
+            > {{element.collectionName}} </td>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Sender Name">
+            <th mat-header-cell *matHeaderCellDef
+            class="text-[#616E88] font-normal text-sm/[14.41px] font-[benton-sans-meduim]"
+            > SENDER'S NAME </th>
+            <td mat-cell *matCellDef="let element"
+            class="text-[#393939] font-normal text-sm/[14.41px] font-[benton-sans-regular]"
+            > {{element.senderName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Narration">
+            <th mat-header-cell *matHeaderCellDef
+            class="text-[#616E88] font-normal text-sm/[14.41px] font-[benton-sans-meduim]"
+            > NARRATION</th>
+            <td mat-cell *matCellDef="let element"
+            class="text-[#393939] font-normal text-sm/[14.41px] font-[benton-sans-regular]"
+            > {{element.narration}} </td>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Transaction Date">
+            <th mat-header-cell *matHeaderCellDef
+            class="text-[#616E88] font-normal text-sm/[14.41px] font-[benton-sans-meduim]"
+            > TRANSACTION DATE </th>
+            <td mat-cell *matCellDef="let element"
+            class="text-[#393939] font-normal text-sm/[14.41px] font-[benton-sans-regular]"
+            > {{element.transanctionDate | date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef
+            class="text-[#616E88] font-normal text-sm/[14.41px] font-[benton-sans-meduim]"
+            > STATUS </th>
+            <td mat-cell  
+            *matCellDef="let element"
+            [ngClass]="{'text-[#F24040]': element.Status === 'Deposit', 'text-[#00AA8B]': element.Status !== 'Deposit'}"
+            class="  font-normal text-sm/[14.41px] font-[benton-sans-meduim] "
+            >
+             {{(element.Status)}} 
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" class="bg-red-700"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+    </aside>
+  </section>
